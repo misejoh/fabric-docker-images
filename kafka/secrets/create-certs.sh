@@ -11,7 +11,7 @@ openssl req -new -x509 -keyout snakeoil-ca-1.key -out snakeoil-ca-1.crt -days 36
 
 # Kafkacat
 openssl genrsa -des3 -passout "pass:fbtestkfk" -out kafkacat.client.key 1024
-openssl req -passin "pass:fbtestkfk" -passout "pass:fbtestkfk" -key kafkacat.client.key -new -out kafkacat.client.req -subj '/CN=kafkacat.fabric-testbed.net/OU=TEST/O=FABIRC/L=Lexington/S=Ky/C=US'
+openssl req -passin "pass:fbtestkfk" -passout "pass:fbtestkfk" -key kafkacat.client.key -new -out kafkacat.client.req -subj '/CN=kafkacat.fabric-testbed.net/OU=TEST/O=FABRIC/L=Lexington/S=Ky/C=US'
 openssl x509 -req -CA snakeoil-ca-1.crt -CAkey snakeoil-ca-1.key -in kafkacat.client.req -out kafkacat-ca1-signed.pem -days 9999 -CAcreateserial -passin "pass:fbtestkfk"
 
 
